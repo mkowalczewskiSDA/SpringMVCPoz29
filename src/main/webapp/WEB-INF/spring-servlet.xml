@@ -31,7 +31,7 @@
     </bean>
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basenames" value="messages/messages,messages/messages2"/>
+        <property name="basenames" value="messages/messages"/>
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
