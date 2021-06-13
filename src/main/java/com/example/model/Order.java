@@ -2,7 +2,7 @@ package com.example.model;
 
 public class Order {
 
-    private int id;
+    private Integer id;
     private double price;
     private String title;
     private User user;
@@ -10,18 +10,18 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, double price, String title, User user) {
+    public Order(Integer id, double price, String title, User user) {
         this.id = id;
         this.price = price;
         this.title = title;
         this.user = user;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

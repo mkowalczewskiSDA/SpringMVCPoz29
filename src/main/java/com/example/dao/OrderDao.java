@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.Order;
+import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,5 +31,17 @@ public class OrderDao {
 
     public void deleteOrder(int id) {
         orders.remove(id);
+    }
+
+    public Order getOrderById(int id) {
+        return orders.get(id);
+    }
+
+    public void editOrder(Order order) {
+        if (order.getId() == null) {
+            int id = orders.keySet().stream().min(((o1, o2) -> o2-o1)).orElse(0)+1;
+            order.setId(id);
+        }
+        orders.put(order.getId(), order);
     }
 }
