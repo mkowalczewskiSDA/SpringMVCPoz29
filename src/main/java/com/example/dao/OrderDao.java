@@ -3,7 +3,6 @@ package com.example.dao;
 import com.example.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -23,5 +22,9 @@ public class OrderDao {
         orders.put(2, new Order(2, 50, "test2", userDao.getUserById(3)));
         orders.put(3, new Order(3, 34, "test3", userDao.getUserById(1)));
         orders.put(4, new Order(4, 4, "test4", userDao.getUserById(2)));
+    }
+
+    public Map<Integer, Order> getOrders() {
+        return orders;
     }
 }
