@@ -2,6 +2,7 @@ package com.example.controller;
 
 
 import com.example.dao.UserDao;
+import com.example.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,18 @@ public class UserController {
     @PostMapping("/edit")
     public String editUser(@RequestParam int id, Model model) {
         model.addAttribute("user", userDao.getUserById(id));
+        return "post";
+    }
+
+    @PostMapping("/save")
+    public String saveUser(User user) {
+        userDao.editUser(user);
+        return "redirect:main";
+    }
+
+    @GetMapping("/addNew")
+    public String addNewUser(Model model) {
+        model.addAttribute("user", new User());
         return "post";
     }
 

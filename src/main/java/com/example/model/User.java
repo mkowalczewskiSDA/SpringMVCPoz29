@@ -2,21 +2,24 @@ package com.example.model;
 
 public class User {
 
-    private int id;
+    private Integer id;
     private String firstName;
     private String lastName;
 
-    public User(int id, String firstName, String lastName) {
+    public User() {
+    }
+
+    public User(Integer id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

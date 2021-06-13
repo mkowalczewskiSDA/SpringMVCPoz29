@@ -30,4 +30,12 @@ public class UserDao {
     public User getUserById(int id) {
         return users.get(id);
     }
+
+    public void editUser(User user) {
+        if (user.getId() == null) {
+            int id = users.keySet().stream().min(((o1, o2) -> o2-o1)).orElse(0)+1;
+            user.setId(id);
+        }
+        users.put(user.getId(), user);
+    }
 }

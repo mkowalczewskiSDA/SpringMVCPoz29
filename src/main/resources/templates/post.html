@@ -22,9 +22,10 @@
 <div class="container">
     <form th:action=@{save} th:object="${user}" method="post">
         <div class="form-group">
-            <input class="form-control" th:field="*{firstName}"/>
+            <input type="hidden" th:field="*{id}">
+            <input class="form-control" placeholder="Provide First Name" th:field="*{firstName}"/>
             <br/>
-            <input class="form-control" th:field="*{lastName}"/>
+            <input class="form-control" placeholder="Provide Last Name" th:field="*{lastName}"/>
             <br/>
             <input type="submit" class="btn btn-success" th:value="Save">
         </div>
