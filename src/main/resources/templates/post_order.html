@@ -27,9 +27,8 @@
             <br/>
             <input class="form-control" placeholder="Provide Price" th:field="*{price}"/>
             <br/>
-            <select th:object="${user}" class="form-control" th:name="id">
-                <option th:each="user : ${users}" th:value="${user.value.id}" th:text="${user.value.firstName}+' '+${user.value.lastName}">
-
+            <select th:object="${user}" class="form-control" th:name="userId">
+                <option th:each="user : ${users}" th:value="${user.value.id}" th:text="${user.value.firstName}+' '+${user.value.lastName}" th:selected = "${order.user.id}==${user.value.id}">
                 </option>
             </select>
             <input type="submit" class="btn btn-success" th:value="Save">

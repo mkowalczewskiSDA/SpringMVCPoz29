@@ -43,7 +43,7 @@ public class OrderController {
     }
 
     @PostMapping("/save")
-    public String saveOrder(Order order, @RequestParam int id) {
+    public String saveOrder(Order order, @RequestParam(name = "userId") int id) {
         var ord = order;
         order.setUser(userDao.getUserById(id));
         orderDao.editOrder(order);
