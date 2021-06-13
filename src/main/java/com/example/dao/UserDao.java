@@ -26,4 +26,8 @@ public class UserDao {
     public void deleteUser(int id) {
         users.remove(id);
     }
+
+    public User getUserById(int id) {
+        return users.get(id);
+    }
 }

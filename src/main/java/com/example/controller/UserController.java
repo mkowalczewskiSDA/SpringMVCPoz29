@@ -4,10 +4,7 @@ package com.example.controller;
 import com.example.dao.UserDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -36,6 +33,12 @@ public class UserController {
     public String mainPage(Model model) {
         // dostarczamy do warstwy widoku atrybut o nazwie users
         model.addAttribute("users", userDao.getUsers());
+        return "index";
+    }
+
+    @GetMapping("/main/{id}")
+    public String getSpecificUser(@PathVariable int id, Model model) {
+        model.addAttribute("user", userDao.getUserById(id));
         return "index";
     }
 
