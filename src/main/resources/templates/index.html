@@ -31,6 +31,11 @@
         <tr th:each="user : ${users}">
             <td><span th:text="${user.value.firstName}"></span></td>
             <td><span th:text="${user.value.lastName}"></span></td>
+            <td>
+                <form th:action="@{delete}" method="post">
+                <button th:type="submit" class="btn btn-success" th:name="id" th:value="${user.value.id}">Delete</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

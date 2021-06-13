@@ -22,4 +22,8 @@ public class UserDao {
     public Map<Integer, User> getUsers() {
         return users;
     }
+
+    public void deleteUser(int id) {
+        users.remove(id);
+    }
 }

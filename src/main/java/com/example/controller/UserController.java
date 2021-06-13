@@ -5,7 +5,10 @@ import com.example.dao.UserDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +17,7 @@ import javax.annotation.PostConstruct;
 @RequestMapping("/user")
 // Domyślny scope Singleton
 @SessionScope // - bean tworzony raz na sesje użytkownika
+//@RequestScope
 // - jeżeli otworzymy aplikacje w innej przelądarce - zobaczymy w konsoli inicjalizacje
 public class UserController {
 
@@ -31,6 +35,13 @@ public class UserController {
     @GetMapping("/main")
     public String mainPage(Model model) {
         // dostarczamy do warstwy widoku atrybut o nazwie users
+        model.addAttribute("users", userDao.getUsers());
+        return "index";
+    }
+
+    @PostMapping("/delete")
+    public String deleteUser(@RequestParam int id, Model model) {
+        userDao.deleteUser(id);
         model.addAttribute("users", userDao.getUsers());
         return "index";
     }
