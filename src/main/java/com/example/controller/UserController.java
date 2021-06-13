@@ -49,4 +49,10 @@ public class UserController {
         return "index";
     }
 
+    @PostMapping("/edit")
+    public String editUser(@RequestParam int id, Model model) {
+        model.addAttribute("user", userDao.getUserById(id));
+        return "post";
+    }
+
 }
