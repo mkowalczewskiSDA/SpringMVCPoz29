@@ -28,7 +28,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
+        <tr th:if="${user != null}" >
+            <td><span th:text="${user.firstName}"></span></td>
+            <td><span th:text="${user.lastName}"></span></td>
+        </tr>
+        <tr th:unless="${user == null}" th:each="user : ${users}">
             <td><span th:text="${user.value.firstName}"></span></td>
             <td><span th:text="${user.value.lastName}"></span></td>
             <td>
