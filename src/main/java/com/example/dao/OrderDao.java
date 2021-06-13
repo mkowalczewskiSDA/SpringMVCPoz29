@@ -27,4 +27,8 @@ public class OrderDao {
     public Map<Integer, Order> getOrders() {
         return orders;
     }
+
+    public void deleteOrder(int id) {
+        orders.remove(id);
+    }
 }
